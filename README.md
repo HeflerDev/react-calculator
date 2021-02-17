@@ -11,7 +11,7 @@
   ```
     npm install
   ```
-  *This will install all dependencies*
+  *This will install all dependencies* <br>
 3. Next, to start the project run:
   ```
     npm start
