@@ -1,17 +1,31 @@
 import operate from './operate';
 
-const calculate = (calculator, btnName) => {
-  if (typeof calculator === 'object'
-      && typeof btnName === 'string'
+const validateArgs = (obj, strName) => {
+  if (typeof obj === 'object'
+      && typeof strName === 'string'
+      && Object.keys(obj).length > 0
+      && 'total' in obj
+      && 'next' in obj
+      && 'operate' in obj
   ) {
-    const { total, next, operation } = calculator;
-    if (btnName === "+/-") {
-      total *= -1;
-      next *= -1;
-    }
-  } else {
-    throw new Error('Wrong argument type: Should be Object');
+    return true;
   }
+  return false;
+};
+
+const calculate = (calculator, btnName) => {
+  if (validateArgs(calculator, btnName)) {
+    const { total, next, operation } = calculator;
+    if (btnName === '+/-') {
+      return ({
+        total: total * -1,
+        next: next * -1,
+      });
+    }
+    return operate(total, next, operation);
+    // return operate(total, next, operation);
+  }
+  throw new Error('Wrong argument type: Should be Object');
 };
 
 export default calculate;
