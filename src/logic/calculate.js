@@ -6,7 +6,7 @@ const validateArgs = (obj, strName) => {
       && Object.keys(obj).length > 0
       && 'total' in obj
       && 'next' in obj
-      && 'operate' in obj
+      && 'operation' in obj
   ) {
     return true;
   }
