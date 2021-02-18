@@ -1,36 +1,26 @@
 import React from 'react';
 
+const groupButtons = {
+  gOne: ['Ac', '+', '%', '/'],
+  gTwo: ['7', '8', '9', 'x'],
+  gThree: ['4', '5', '6', '-'],
+  gFour: ['1', '2', '3', '+'],
+  gFive: ['0', '.', '='],
+};
+
 const ButtonPanel = () => (
   <>
-    <div>
-      <div>AC</div>
-      <div>+/-</div>
-      <div>%</div>
-      <div>/</div>
-    </div>
-    <div>
-      <div>7</div>
-      <div>8</div>
-      <div>9</div>
-      <div>X</div>
-    </div>
-    <div>
-      <div>4</div>
-      <div>5</div>
-      <div>6</div>
-      <div>-</div>
-    </div>
-    <div>
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>+</div>
-    </div>
-    <div>
-      <div>0</div>
-      <div>.</div>
-      <div>=</div>
-    </div>
+    {
+      Object.keys(groupButtons).map(k => (
+        <div key={k}>
+          {
+            groupButtons[`${k}`].map(item => (
+              <div key={`${k}-${item}`}>{item}</div>
+            ))
+          }
+        </div>
+      ))
+    }
   </>
 );
 
