@@ -83,7 +83,7 @@ const calculate = (calculator, btnName) => {
     if (btnName === '=') {
       if (validateInput(total, next, operation)) {
         return ({
-          total: operate(total, next, operation).toString(),
+          total: operate(total, next, operation).toFixed(2).toString(),
           next: '',
           operation: '',
         });
@@ -101,6 +101,8 @@ const calculate = (calculator, btnName) => {
       });
     }
 
+    if (operation === '' && total.length > 9) { return null; }
+
     if (operation === '') {
       return ({
         total: total + btnName,
@@ -112,6 +114,8 @@ const calculate = (calculator, btnName) => {
         next: btnName,
       });
     }
+
+    if (next.length > 9) { return null; }
 
     return ({
       next: next + btnName,
