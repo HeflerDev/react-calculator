@@ -7,6 +7,7 @@ const Button = ({ name, clickHandler }) => {
   return (
     <>
       <button
+        className="calculator-button"
         type="button"
         onClick={() => handleClick3(name)}
         tabIndex={name}

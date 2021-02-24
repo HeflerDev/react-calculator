@@ -5,10 +5,16 @@ const Display = ({ result }) => {
   const { total, next, operation } = result;
   return (
     <>
-      <div>
-        { total }
-        { operation }
-        { next }
+      <div className="calculator-display">
+        <div>
+          { total }
+        </div>
+        <div>
+          { operation }
+        </div>
+        <div>
+          { next }
+        </div>
       </div>
     </>
   );

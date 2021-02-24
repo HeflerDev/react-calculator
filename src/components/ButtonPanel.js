@@ -15,17 +15,19 @@ const ButtonPanel = ({ clickHandler }) => {
 
   return (
     <>
-      {
-        Object.keys(groupButtons).map(k => (
-          <div key={k}>
-            {
-              groupButtons[`${k}`].map(item => (
-                <Button key={item} name={item} clickHandler={handleClick2} />
-              ))
-            }
-          </div>
-        ))
-      }
+      <div className="button-container">
+        {
+          Object.keys(groupButtons).map(k => (
+            <div className="button-row" key={k}>
+              {
+                groupButtons[`${k}`].map(item => (
+                  <Button key={item} name={item} clickHandler={handleClick2} />
+                ))
+              }
+            </div>
+          ))
+        }
+      </div>
     </>
   );
 };
