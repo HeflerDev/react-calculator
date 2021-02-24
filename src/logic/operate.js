@@ -7,10 +7,10 @@ const operate = (numberOne, numberTwo, operation) => {
   if (operation === '-') { return x.minus(y); }
   if (operation === '+') { return x.plus(y); }
   if (operation === '/') { return x.div(y); }
-  if (operation === '*') { return x.times(y); }
+  if (operation === 'X') { return x.times(y); }
   if (operation === '%') { return x.div(100); }
 
-  throw new Error('Invalid Operation');
+  throw new Error('INVALID OPERATION: MUST CONTAIN ALL ELEMENTS');
 };
 
 export default operate;
