@@ -10,7 +10,7 @@ const operate = (numberOne, numberTwo, operation) => {
   if (operation === 'X') { return x.times(y); }
   if (operation === '%') { return x.div(100); }
 
-  throw new Error('INVALID OPERATION: MUST CONTAIN ALL ELEMENTS');
+  throw new Error('Invalid Operation');
 };
 
 export default operate;

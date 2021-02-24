@@ -5,7 +5,7 @@ describe('When invoking function', () => {
   test('operations should work', () => {
     expect(operate(2, 1, '-')).toEqual(Big(1));
     expect(operate(3, 6, '+')).toEqual(Big(9));
-    expect(operate(5, 5, '*')).toEqual(Big(25));
+    expect(operate(5, 5, 'X')).toEqual(Big(25));
     expect(operate(50, 10, '/')).toEqual(Big(5));
   });
 
