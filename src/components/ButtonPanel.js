@@ -11,7 +11,7 @@ const groupButtons = {
 };
 
 const ButtonPanel = ({ clickHandler }) => {
-  const handleClick2 = buttonName => clickHandler(buttonName);
+  const handleClick = buttonName => clickHandler(buttonName);
 
   return (
     <>
@@ -21,7 +21,7 @@ const ButtonPanel = ({ clickHandler }) => {
             <div className="button-row" key={k}>
               {
                 groupButtons[`${k}`].map(item => (
-                  <Button key={item} name={item} clickHandler={handleClick2} />
+                  <Button key={item} name={item} clickHandler={handleClick} />
                 ))
               }
             </div>

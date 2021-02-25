@@ -1,22 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = ({ name, clickHandler }) => {
-  const handleClick3 = btnName => clickHandler(btnName);
-
-  return (
-    <>
-      <button
-        className="calculator-button"
-        type="button"
-        onClick={() => handleClick3(name)}
-        tabIndex={name}
-      >
-        { name }
-      </button>
-    </>
-  );
-};
+const Button = ({ name, clickHandler }) => (
+  <>
+    <button
+      className="calculator-button"
+      type="button"
+      onClick={() => clickHandler(name)}
+      tabIndex={name}
+    >
+      { name }
+    </button>
+  </>
+);
 
 Button.propTypes = {
   name: PropTypes.string.isRequired,

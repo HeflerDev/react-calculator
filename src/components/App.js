@@ -13,13 +13,11 @@ export default class App extends Component {
       operation: '',
     };
     /* eslint-enable react/no-unused-state */
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick(buttonName) {
-    this.setState(state => (
-      calculate(state, buttonName)
-    ));
+    this.handleClick = buttonName => {
+      this.setState(state => (
+        calculate(state, buttonName)
+      ));
+    };
   }
 
   render() {
