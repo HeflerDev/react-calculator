@@ -11,6 +11,7 @@ export default class App extends Component {
       total: '0',
       next: '',
       operation: '',
+      reset: false,
     };
     /* eslint-enable react/no-unused-state */
     this.handleClick = buttonName => {

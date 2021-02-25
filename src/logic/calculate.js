@@ -25,7 +25,12 @@ const validateInput = (strOne, strTwo, strThree) => {
 
 const calculate = (calculator, btnName) => {
   if (validateArgs(calculator, btnName)) {
-    const { total, next, operation } = calculator;
+    const {
+      total,
+      next,
+      operation,
+      reset,
+    } = calculator;
 
     if (btnName === '+/-') {
       if (total !== '' && next === '') {
@@ -86,13 +91,10 @@ const calculate = (calculator, btnName) => {
           total: operate(total, next, operation).toFixed(2).toString(),
           next: '',
           operation: '',
+          reset: true,
         });
       }
-      return ({
-        total,
-        next,
-        operation,
-      });
+      return null;
     }
 
     if (/^0/.test(total) && total.length === 1) {
@@ -102,6 +104,13 @@ const calculate = (calculator, btnName) => {
     }
 
     if (operation === '' && total.length > 9) { return null; }
+
+    if (reset) {
+      return ({
+        total: btnName,
+        reset: false,
+      });
+    }
 
     if (operation === '') {
       return ({
