@@ -8,8 +8,4 @@ describe('when invoking function', () => {
     expect(() => calculate({}, 'Name')).toThrow(Error);
     expect(() => calculate({ randomValues: 10 }, 'Name')).toThrow(Error);
   });
-  test('should accept good parameter', () => {
-    expect(() => calculate({ total: 5, next: 10, operation: '+' }, '+'))
-      .not.toThrow(Error);
-  });
 });
