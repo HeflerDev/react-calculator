@@ -23,35 +23,42 @@ const validateInput = (strOne, strTwo, strThree) => {
   return false;
 };
 
-const calculate = (calculator, btnName) => {
-  if (validateArgs(calculator, btnName)) {
+const calculate = (getters, setters, btnName) => {
+  if (validateArgs(getters, btnName)) {
     const {
       total,
       next,
       operation,
       reset,
-    } = calculator;
+    } = getters;
+
+    const {
+      setTotal,
+      setNext,
+      setOperation,
+      setReset,
+    } = setters;
 
     if (btnName === '+/-') {
       if (total !== '' && next === '') {
-        return ({ total: (parseFloat(total, 10) * -1).toString() });
+        setTotal((parseFloat(total, 10) * -1).toString());
       }
 
       if (total !== '' && next !== '') {
-        return ({
-          total: (parseFloat(total, 10) * -1).toString(),
-          next: (parseFloat(next, 10) * -1).toString(),
-        });
+        return (
+          setTotal((parseFloat(total, 10) * -1).toString()),
+          setNext((parseFloat(next, 10) * -1).toString())
+        );
       }
       return null;
     }
 
     if (btnName === 'Ac') {
-      return ({
-        total: '0',
-        next: '',
-        operation: '',
-      });
+      return (
+        setTotal(0),
+        setNext(''),
+        setOperation('')
+      );
     }
 
     if (btnName === '+'
@@ -60,75 +67,71 @@ const calculate = (calculator, btnName) => {
       || btnName === '/'
     ) {
       if (total !== '') {
-        return ({
-          operation: btnName,
-        });
+        return setOperation(btnName);
       }
       return null;
     }
 
     if (btnName === '%') {
-      return ({
-        total: operate(total, total, '%').toString(),
-        next: '',
-        operation: '',
-      });
+      return (
+        setTotal(operate(total, total, '%').toString()),
+        setNext(''),
+        setOperation('')
+      );
     }
 
     if (btnName === '.') {
       if (operation === '' && total !== '' && !/\./.test(total)) {
-        return ({ total: total + btnName });
+        return (setTotal(total + btnName));
       }
       if (operation !== '' && next !== '' && !/\./.test(next)) {
-        return ({ next: next + btnName });
+        return (setNext(next + btnName));
       }
       return null;
     }
 
     if (btnName === '=') {
       if (validateInput(total, next, operation)) {
-        return ({
-          total: operate(total, next, operation).toFixed(2).toString(),
-          next: '',
-          operation: '',
-          reset: true,
-        });
+        return (
+          setTotal(operate(total, next, operation).toFixed(2).toString()),
+          setNext(''),
+          setOperation(''),
+          setReset(true)
+        );
       }
       return null;
     }
 
     if (/^0/.test(total) && total.length === 1) {
-      return ({
-        total: btnName,
-      });
+      return (setTotal(btnName));
     }
 
     if (operation === '' && total.length > 9) { return null; }
 
     if (reset) {
-      return ({
-        total: btnName,
-        reset: false,
-      });
+      return (
+        setTotal(btnName),
+        setReset(false)
+      );
     }
 
     if (operation === '') {
-      return ({
-        total: total + btnName,
-      });
+      return (
+        setTotal(total + btnName)
+      );
     }
 
     if (/^0/.test(next) && next.length === 1) {
-      return ({
-        next: btnName,
-      });
+      return (
+        setNext(btnName)
+      );
     }
 
     if (next.length > 9) { return null; }
 
-    return ({
-      next: next + btnName,
-    });
+    return (
+      setNext(next + btnName)
+    );
   }
   throw new Error('Wrong argument type: Should be Object');
 };
