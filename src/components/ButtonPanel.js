@@ -15,10 +15,10 @@ const ButtonPanel = ({ clickHandler }) => {
 
   return (
     <>
-      <div className="button-container">
+      <div className="stack no-padding">
         {
           Object.keys(groupButtons).map(k => (
-            <div className="button-row" key={k}>
+            <div className="board" key={k}>
               {
                 groupButtons[`${k}`].map(item => (
                   <Button key={item} name={item} clickHandler={handleClick} />
