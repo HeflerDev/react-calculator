@@ -1,6 +1,12 @@
+import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+import Routes from './components/Routes';
 import './index.css';
 import 'csstack';
 
-ReactDOM.render(<App className="main-app" />, document.getElementById('root'));
+ReactDOM.render(
+  <React.StrictMode>
+    <Routes />
+  </React.StrictMode>,
+  document.getElementById('root'),
+);
