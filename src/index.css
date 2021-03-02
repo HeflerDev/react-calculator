@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap');
 
 :root {
-  --main-bg-color: #D9C6BF;
-  --color-sec:#BF1111;
+  --main-bg-color: #d9c6bf;
+  --color-sec: #bf1111;
 }
 
 html {
@@ -11,22 +11,36 @@ html {
 
 h1 {
   color: whitesmoke;
-  margin:auto;
+  margin: auto;
   height: 100%;
-  margin-bottom:0 !important;
+  margin-bottom: 0 !important;
 }
 
-h1, h2 {
+h1,
+h2 {
   text-align: center;
   font-family: 'Akaya Telivigala', cursive;
 }
 
-.queue a{
+a,
+a:hover,
+a:active,
+a:visited,
+a:focus {
+  text-decoration: none !important;
+  color: white !important;
+}
+
+.links a {
+  padding: 0.2rem;
+}
+
+.queue a {
   color: whitesmoke !important;
   text-decoration: none !important;
 }
 
-.queue a:hover{
+.queue a:hover {
   color: whitesmoke;
 }
 
@@ -35,7 +49,7 @@ h1, h2 {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  min-height:75vh;
+  min-height: 75vh;
 }
 
 .calculator-display {
@@ -58,12 +72,12 @@ h1, h2 {
 }
 
 .m-auto {
-  margin:auto !important;
+  margin: auto !important;
 }
 
 .calculator-button {
   border-radius: 0;
-  border:solid darkgray 2px; 
+  border: solid darkgray 2px;
   padding: 1.5rem 0;
   font-weight: bold;
   font-size: 1.5rem;
@@ -79,15 +93,11 @@ h1, h2 {
 }
 
 .quote {
-  font-size:2rem;
+  font-size: 2rem;
 }
 
 .links {
   justify-content: space-around;
-}
-
-.links a {
-  padding: 0.2rem;
 }
 
 .links a:hover {
@@ -100,18 +110,18 @@ h1, h2 {
 }
 
 .quotes-container {
-  background-color: rgba(164,164,164, 0.2);
+  background-color: rgba(164, 164, 164, 0.2);
   border-radius: 0.3rem;
 }
 
 .content-container {
   display: flex;
-  flex-firection: column;
   justify-content: center;
   height: 100%;
 }
 
-h2, h3 {
+h2,
+h3 {
   font-size: 3rem;
 }
 
@@ -126,18 +136,13 @@ footer {
 }
 
 ul {
-  list-style:none;
+  list-style: none;
   margin: 0;
   padding: 0;
 }
 
 #root a {
   color: darkred !important;
-}
-
-a, a:hover, a:active, a:visited, a:focus {
-    text-decoration:none !important;
-    color: white !important;
 }
 
 .author {
@@ -149,14 +154,14 @@ footer strong {
   font-size: 1.2rem;
 }
 
-.license { 
+.license {
   border-top: solid rgba(240, 230, 230, 0.2) 1px;
 }
 
 @media screen and (max-device-width: 768px) {
   .links {
     justify-content: space-around;
-    background-color:darkred;
+    background-color: darkred;
   }
 
   footer ul {
@@ -165,7 +170,8 @@ footer strong {
     text-align: center;
   }
 
-  h2, h3 {
+  h2,
+  h3 {
     font-size: 1.5rem;
   }
 
@@ -176,8 +182,8 @@ footer strong {
   #root {
     background-color: whitesmoke;
     width: 100%;
-    padding: 2rem 1rem ;
-    margin:auto;
+    padding: 2rem 1rem;
+    margin: auto;
     min-height: 60vh;
     justify-content: center;
   }
