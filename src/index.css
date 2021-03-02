@@ -6,11 +6,14 @@
 }
 
 html {
-  background-color: var(--main-bg-color);
+  background-color: darkred;
 }
 
 h1 {
   color: whitesmoke;
+  margin:auto;
+  height: 100%;
+  margin-bottom:0 !important;
 }
 
 h1, h2 {
@@ -30,7 +33,9 @@ h1, h2 {
 #root {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   text-align: center;
+  min-height:75vh;
 }
 
 .calculator-display {
@@ -50,6 +55,10 @@ h1, h2 {
 .button-container {
   display: flex;
   flex-direction: column;
+}
+
+.m-auto {
+  margin:auto !important;
 }
 
 .calculator-button {
@@ -73,12 +82,21 @@ h1, h2 {
   font-size:2rem;
 }
 
-.board {
-  background-color: var(--color-sec);
+.links {
+  justify-content: space-around;
 }
 
-.queue {
+.links a {
+  padding: 0.2rem;
+}
+
+.links a:hover {
   background-color: darkred;
+  border-radius: 0.3rem;
+}
+
+.logo {
+  background-color: var(--color-sec);
 }
 
 .quotes-container {
@@ -86,7 +104,75 @@ h1, h2 {
   border-radius: 0.3rem;
 }
 
+.content-container {
+  display: flex;
+  flex-firection: column;
+  justify-content: center;
+  height: 100%;
+}
+
+h2, h3 {
+  font-size: 3rem;
+}
+
+p {
+  font-size: 2rem;
+}
+
+footer {
+  border-top: solid darkred 1rem;
+  background-color: darkred;
+  color: white;
+}
+
+ul {
+  list-style:none;
+  margin: 0;
+  padding: 0;
+}
+
+#root a {
+  color: darkred !important;
+}
+
+a, a:hover, a:active, a:visited, a:focus {
+    text-decoration:none !important;
+    color: white !important;
+}
+
+.author {
+  font-size: 2rem;
+  font-family: 'Akaya Telivigala', cursive;
+}
+
+footer strong {
+  font-size: 1.2rem;
+}
+
+.license { 
+  border-top: solid rgba(240, 230, 230, 0.2) 1px;
+}
+
 @media screen and (max-device-width: 768px) {
+  .links {
+    justify-content: space-around;
+    background-color:darkred;
+  }
+
+  footer ul {
+    border-top: solid darkred 1px;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  h2, h3 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
   #root {
     background-color: whitesmoke;
     width: 100%;
