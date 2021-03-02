@@ -1,11 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap');
+
+:root {
+  --main-bg-color: #D9C6BF;
+  --color-sec:#BF1111;
+}
+
+html {
+  background-color: var(--main-bg-color);
+}
+
+h1 {
+  color: whitesmoke;
+}
+
+h1, h2 {
+  text-align: center;
+  font-family: 'Akaya Telivigala', cursive;
+}
+
+.queue a{
+  color: whitesmoke !important;
+  text-decoration: none !important;
+}
+
+.queue a:hover{
+  color: whitesmoke;
+}
+
 #root {
-  box-sizing: border-box;
-  width: 30%;
   display: flex;
   flex-direction: column;
-  border-radius: 10px;
-  margin: 1rem;
-  padding: 0.5rem;
+  text-align: center;
 }
 
 .calculator-display {
@@ -44,8 +69,30 @@
   padding: 0 !important;
 }
 
+.quote {
+  font-size:2rem;
+}
+
+.board {
+  background-color: var(--color-sec);
+}
+
+.queue {
+  background-color: darkred;
+}
+
+.quotes-container {
+  background-color: rgba(164,164,164, 0.2);
+  border-radius: 0.3rem;
+}
+
 @media screen and (max-device-width: 768px) {
   #root {
+    background-color: whitesmoke;
     width: 100%;
+    padding: 2rem 1rem ;
+    margin:auto;
+    min-height: 60vh;
+    justify-content: center;
   }
 }
