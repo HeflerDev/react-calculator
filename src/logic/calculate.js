@@ -39,6 +39,8 @@ const calculate = (getters, setters, btnName) => {
       setReset,
     } = setters;
 
+    console.log(getters);
+
     if (btnName === '+/-') {
       if (total !== '' && next === '') {
         setTotal((parseFloat(total, 10) * -1).toString());
@@ -61,11 +63,25 @@ const calculate = (getters, setters, btnName) => {
       );
     }
 
+    if (reset) {
+      setReset(false);
+      if (/[0-9]/.test(btnName)) {
+        return setTotal(btnName);
+      }
+    }
+
     if (btnName === '+'
       || btnName === '-'
       || btnName === 'X'
       || btnName === '/'
     ) {
+      if (validateInput(total, next, operation)) {
+        return (
+          setTotal(operate(total, next, operation)),
+          setNext(''),
+          setOperation(btnName)
+        );
+      }
       if (total !== '') {
         return setOperation(btnName);
       }
@@ -93,7 +109,7 @@ const calculate = (getters, setters, btnName) => {
     if (btnName === '=') {
       if (validateInput(total, next, operation)) {
         return (
-          setTotal(operate(total, next, operation).toFixed(2).toString()),
+          setTotal(operate(total, next, operation)),
           setNext(''),
           setOperation(''),
           setReset(true)
@@ -107,13 +123,6 @@ const calculate = (getters, setters, btnName) => {
     }
 
     if (operation === '' && total.length > 9) { return null; }
-
-    if (reset) {
-      return (
-        setTotal(btnName),
-        setReset(false)
-      );
-    }
 
     if (operation === '') {
       return (

@@ -29,6 +29,7 @@ const Button = ({ name, clickHandler }) => {
         type="button"
         onClick={() => clickHandler(name)}
         tabIndex={name}
+        id={`btn-${name}`}
       >
         { name }
       </button>
