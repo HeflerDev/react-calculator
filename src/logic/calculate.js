@@ -93,7 +93,7 @@ const calculate = (getters, setters, btnName) => {
     if (btnName === '=') {
       if (validateInput(total, next, operation)) {
         return (
-          setTotal(operate(total, next, operation).toFixed(2).toString()),
+          setTotal(operate(total, next, operation)),
           setNext(''),
           setOperation(''),
           setReset(true)
