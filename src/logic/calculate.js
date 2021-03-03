@@ -39,8 +39,6 @@ const calculate = (getters, setters, btnName) => {
       setReset,
     } = setters;
 
-    console.log(getters);
-
     if (btnName === '+/-') {
       if (total !== '' && next === '') {
         setTotal((parseFloat(total, 10) * -1).toString());
@@ -57,7 +55,7 @@ const calculate = (getters, setters, btnName) => {
 
     if (btnName === 'Ac') {
       return (
-        setTotal(0),
+        setTotal('0'),
         setNext(''),
         setOperation('')
       );
