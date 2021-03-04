@@ -1,6 +1,16 @@
 import Big from 'big.js';
 
 const operate = (numberOne, numberTwo, operation) => {
+  const numValidator = /[^0-9.]/;
+  const signalValidator = /^[^+/\-X%]$/;
+  if (numValidator.test(numberOne) || numValidator.test(numberTwo)) {
+    throw new Error(`String must contain only numbers, instead received ${numberOne}, ${numberTwo}.`);
+  }
+
+  if (signalValidator.test(operation)) {
+    throw new Error(`Operation must contain only a operator character, instead received ${operation}.`);
+  }
+
   const x = new Big(numberOne);
   const y = new Big(numberTwo);
   let result;
