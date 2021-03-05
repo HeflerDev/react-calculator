@@ -41,7 +41,7 @@ const calculate = (getters, setters, btnName) => {
 
     if (btnName === '+/-') {
       if (total !== '' && next === '') {
-        setTotal((parseFloat(total, 10) * -1).toString());
+        return setTotal((parseFloat(total, 10) * -1).toString());
       }
 
       if (total !== '' && next !== '') {
@@ -54,11 +54,9 @@ const calculate = (getters, setters, btnName) => {
     }
 
     if (btnName === 'Ac') {
-      return (
-        setTotal('0'),
-        setNext(''),
-        setOperation('')
-      );
+      setNext('');
+      setOperation('');
+      return (setTotal('0'));
     }
 
     if (reset) {
@@ -87,11 +85,9 @@ const calculate = (getters, setters, btnName) => {
     }
 
     if (btnName === '%') {
-      return (
-        setTotal(operate(total, total, '%').toString()),
-        setNext(''),
-        setOperation('')
-      );
+      setNext('');
+      setOperation('');
+      return (setTotal(operate(total, total, '%').toString()));
     }
 
     if (btnName === '.') {
@@ -101,17 +97,15 @@ const calculate = (getters, setters, btnName) => {
       if (operation !== '' && next !== '' && !/\./.test(next)) {
         return (setNext(next + btnName));
       }
-      return null;
+      return total;
     }
 
     if (btnName === '=') {
       if (validateInput(total, next, operation)) {
-        return (
-          setTotal(operate(total, next, operation)),
-          setNext(''),
-          setOperation(''),
-          setReset(true)
-        );
+        setNext('');
+        setOperation('');
+        setReset(true);
+        return (setTotal(operate(total, next, operation)));
       }
       return null;
     }
@@ -140,7 +134,8 @@ const calculate = (getters, setters, btnName) => {
       setNext(next + btnName)
     );
   }
-  throw new Error('Wrong argument type: Should be Object');
+
+  throw new Error(`${getters} is a wrong argument type.`);
 };
 
 export default calculate;

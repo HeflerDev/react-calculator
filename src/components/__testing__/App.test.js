@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import App from './App';
+import renderer from 'react-test-renderer';
+import App from '../App';
 
 const clickOn = el => {
   act(() => {
@@ -9,7 +10,14 @@ const clickOn = el => {
   });
 };
 
-describe('when rendering the calculator', () => {
+describe('when rendering the page', () => {
+  const tree = renderer
+    .create(<App />)
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+describe('when displaying the calculator', () => {
   const btnsObj = {};
   let display;
   let board;
