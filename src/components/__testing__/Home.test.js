@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import Home from '../Home';
 import renderer from 'react-test-renderer';
+import Home from '../Home';
 
 describe('when rendering the home page', () => {
   let container;
